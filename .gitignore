@@ -1,0 +1,37 @@
+# OS / system files
+.DS_Store
+Thumbs.db
+
+# Editor / IDE files
+.vscode/
+*.swp
+*.swo
+*.sublime-workspace
+.idea/
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
+
+# Kubernetes / Minikube local files
+.kube/
+*.kubeconfig
+*.cache
+
+# Kustomize / Helm temporary files
+.kustomize/
+.helm/
+
+# Terraform / local state (if ever used)
+*.tfstate
+*.tfstate.backup
+.terraform/
+
+# Language-specific (optional, if using Python / Node)
+__pycache__/
+*.pyc
+node_modules/
+
+# Ignore secrets or credentials (if any)
+*.secret.yaml
