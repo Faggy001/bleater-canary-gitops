@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bleater-api-gateway-v2
+  namespace: bleater
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bleater-api-gateway
+      version: v2
+  template:
+    metadata:
+      labels:
+        app: bleater-api-gateway
+        version: v2
+    spec:
+      containers:
+      - name: api
+        image: nginx:alpine
+        ports:
+        - containerPort: 80
+        command: ["/bin/sh", "-c"]
+        args:
+          - |
+            echo "v2 (canary)" > /usr/share/nginx/html/version;
+            nginx -g 'daemon off;'

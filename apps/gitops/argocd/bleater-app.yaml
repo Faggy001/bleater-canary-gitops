@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: bleater-api-gateway
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/Faggy001/bleater-canary-gitops.git
+    targetRevision: main
+    path: apps/bleater-api-gateway/overlays/canary-10
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: bleater
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
